@@ -11,8 +11,8 @@ import (
 // VERSION is the winner picker version
 const VERSION = "0.0.1"
 
-// Pick takes a list of contestants, and picks a winner
-func Pick(contestants []string) {
+// Show takes a list of contestants, and creates a show to STDOUT
+func Show(contestants []string) {
 	fmt.Println("WinnerPicker")
 	fmt.Println("Version:", VERSION)
 	fmt.Println("-----------------")
@@ -32,14 +32,15 @@ func Pick(contestants []string) {
 	}
 
 	fmt.Println("-----------------")
-	winner := pickWinner(contestants)
+	winner := PickWinner(contestants)
 	fmt.Println("The winner is:")
 	fmt.Println("*****************")
 	fmt.Println(winner)
 	fmt.Println("*****************")
 }
 
-func pickWinner(contestants []string) string {
+// PickWinner takes a list of contestants, and picks a winner
+func PickWinner(contestants []string) string {
 	rand.Seed(time.Now().Unix())
 	winIndex := rand.Intn(len(contestants))
 	return contestants[winIndex]

@@ -9,5 +9,5 @@ func main() {
 		"Matthew",
 	}
 
-	gopicker.Pick(CONTESTANTS)
+	gopicker.Show(CONTESTANTS)
 }
