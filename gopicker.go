@@ -11,6 +11,7 @@ import (
 // VERSION is the winner picker version
 const VERSION = "0.0.1"
 
+// Pick takes a list of contestants, and picks a winner
 func Pick(contestants []string) {
 	fmt.Println("WinnerPicker")
 	fmt.Println("Version:", VERSION)
