@@ -9,10 +9,10 @@ import (
 )
 
 // VERSION is the winner picker version
-const VERSION = "0.0.1"
+const VERSION = "0.0.2"
 
-// Show takes a list of contestants, and creates a show to STDOUT
-func Show(contestants []string) {
+// Perform presents the raffle, with a little pizzazz
+func Perform(contestants []string) {
 	fmt.Println("WinnerPicker")
 	fmt.Println("Version:", VERSION)
 	fmt.Println("-----------------")

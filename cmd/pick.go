@@ -14,5 +14,5 @@ func main() {
 		"Doug",
 	}
 
-	gopicker.Show(CONTESTANTS)
+	gopicker.Perform(CONTESTANTS)
 }

@@ -15,7 +15,7 @@ func main() {
 		"Freddy",
 	}
 
-	gopicker.Show(CONTESTANTS)
+	gopicker.Perform(CONTESTANTS)
 }
 ```
 
@@ -23,7 +23,7 @@ Run it;
 
 ``` bash
 WinnerPicker
-Version: 0.0.1
+Version: 0.0.2
 -----------------
 Contestants:
 * Rod
