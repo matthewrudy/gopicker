@@ -4,9 +4,14 @@ import "github.com/matthewrudy/gopicker"
 
 func main() {
 	CONTESTANTS := []string{
-		"Eddie",
-		"Steve",
-		"Matthew",
+		"Bart",
+		"Jun Jun",
+		"Zak",
+		"Thomas",
+		"Walter",
+		"Jack",
+		"Bambi",
+		"Doug",
 	}
 
 	gopicker.Show(CONTESTANTS)
