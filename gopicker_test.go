@@ -3,7 +3,7 @@ package gopicker
 import (
 	"testing"
 
-	"github.com/fatih/set"
+	"github.com/matthewrudy/set"
 )
 
 func Test_PickWinner(t *testing.T) {
@@ -13,7 +13,7 @@ func Test_PickWinner(t *testing.T) {
 		"Charlie",
 	}
 
-	winners := set.New(set.ThreadSafe)
+	winners := set.New()
 	iterations := len(candidates) * 10
 
 	for i := 0; i < iterations; i++ {
