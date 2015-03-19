@@ -11,16 +11,31 @@ import (
 // VERSION is the winner picker version
 const VERSION = "0.0.2"
 
+type competition struct {
+	contestants []string
+	rand        *rand.Rand
+}
+
+func newCompetition(contestants []string) *competition {
+	return &competition{
+		contestants: contestants,
+		rand:        rand.New(rand.NewSource(time.Now().UnixNano())),
+	}
+}
+
 // Perform presents the raffle, with a little pizzazz
 func Perform(contestants []string) {
-	initializeRand()
+	competition := newCompetition(contestants)
+	competition.perform()
+}
 
+func (c *competition) perform() {
 	fmt.Println("WinnerPicker")
 	fmt.Println("Version:", VERSION)
 	fmt.Println("-----------------")
 	fmt.Println("Contestants:")
 
-	for _, name := range contestants {
+	for _, name := range c.contestants {
 		fmt.Println("*", name)
 	}
 
@@ -34,23 +49,24 @@ func Perform(contestants []string) {
 	}
 
 	fmt.Println("-----------------")
-	winner := PickWinner(contestants)
+	winner := PickWinner(c.contestants)
 	fmt.Println("The winner is:")
 	fmt.Println("*****************")
 	fmt.Println(winner)
 	fmt.Println("*****************")
 }
 
-func initializeRand() {
-	rand.Seed(time.Now().Unix())
-}
-
 // PickWinner takes a list of contestants, and picks a winner
 func PickWinner(contestants []string) string {
-	if len(contestants) < 1 {
+	competition := newCompetition(contestants)
+	return competition.pickWinner()
+}
+
+func (c *competition) pickWinner() string {
+	if len(c.contestants) < 1 {
 		panic("PickWinner needs >= 1 candidates")
 	}
 
-	winIndex := rand.Intn(len(contestants))
-	return contestants[winIndex]
+	winIndex := c.rand.Intn(len(c.contestants))
+	return c.contestants[winIndex]
 }
