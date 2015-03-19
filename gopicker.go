@@ -13,6 +13,8 @@ const VERSION = "0.0.2"
 
 // Perform presents the raffle, with a little pizzazz
 func Perform(contestants []string) {
+	initializeRand()
+
 	fmt.Println("WinnerPicker")
 	fmt.Println("Version:", VERSION)
 	fmt.Println("-----------------")
@@ -39,13 +41,16 @@ func Perform(contestants []string) {
 	fmt.Println("*****************")
 }
 
+func initializeRand() {
+	rand.Seed(time.Now().Unix())
+}
+
 // PickWinner takes a list of contestants, and picks a winner
 func PickWinner(contestants []string) string {
 	if len(contestants) < 1 {
 		panic("PickWinner needs >= 1 candidates")
 	}
 
-	//rand.Seed(time.Now().Unix())
 	winIndex := rand.Intn(len(contestants))
 	return contestants[winIndex]
 }
