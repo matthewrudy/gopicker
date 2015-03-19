@@ -41,7 +41,11 @@ func Perform(contestants []string) {
 
 // PickWinner takes a list of contestants, and picks a winner
 func PickWinner(contestants []string) string {
-	rand.Seed(time.Now().Unix())
+	if len(contestants) < 1 {
+		panic("PickWinner needs >= 1 candidates")
+	}
+
+	//rand.Seed(time.Now().Unix())
 	winIndex := rand.Intn(len(contestants))
 	return contestants[winIndex]
 }
